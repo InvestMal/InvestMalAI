@@ -2,7 +2,7 @@ import os
 
 # Required env vars (set these securely in Render)
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # e.g. https://your-service.onrender.com
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # e.g. https://investmalai.onrender.com
 PORT = int(os.getenv("PORT", 10000))
 
 # OpenAI key (used by AI service)
