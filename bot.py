@@ -12,20 +12,12 @@ ai = AIService()
 
 # --------------------------- Commands ---------------------------
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("🤖 البوت يعمل بنجاح!")
+from telegram.ext import CommandHandler, CallbackQueryHandler
+from app.handlers.help import help_command
+from app.handlers.help_callbacks import help_callback
 
-async def ai_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if not context.args:
-        await update.message.reply_text("❗ استخدم الأمر:\n/ai سؤالك…")
-        return
-
-    prompt = " ".join(context.args)
-    await update.message.reply_text("⏳ جاري معالجة سؤالك…")
-
-    answer = await ai.ask(prompt)
-    await update.message.reply_text(answer)
-
+app.add_handler(CommandHandler("help", help_command))
+app.add_handler(CallbackQueryHandler(help_callback))
 # --------------------------- Main ---------------------------
 
 def main():
