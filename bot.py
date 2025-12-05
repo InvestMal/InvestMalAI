@@ -31,3 +31,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+from app.handlers.ai import ai_chat
+
+# داخل main():
+app.add_handler(CommandHandler("ai", ai_chat))
