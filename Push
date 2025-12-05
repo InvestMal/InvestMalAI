@@ -1,0 +1,21 @@
+investmal-ai-bot/
+│
+├── bot.py
+├── requirements.txt
+├── runtime.txt
+├── Procfile
+│
+└── app/
+    ├── __init__.py
+    ├── config.py
+    ├── logging_config.py
+    │
+    ├── handlers/
+    │   ├── __init__.py
+    │   ├── start.py
+    │   ├── help.py
+    │   └── errors.py
+    │
+    └── services/
+        ├── __init__.py
+        └── trading_engine.py   (فارغ حالياً — مكان جاهز للمنطق)
