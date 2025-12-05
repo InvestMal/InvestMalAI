@@ -1,9 +1,10 @@
-investmal-ai-bot/
+investmalai/
 │
 ├── bot.py
 ├── requirements.txt
 ├── runtime.txt
 ├── Procfile
+├── README.md
 │
 └── app/
     ├── __init__.py
@@ -14,8 +15,10 @@ investmal-ai-bot/
     │   ├── __init__.py
     │   ├── start.py
     │   ├── help.py
+    │   ├── ai.py
     │   └── errors.py
     │
     └── services/
         ├── __init__.py
-        └── trading_engine.py   (فارغ حالياً — مكان جاهز للمنطق)
+        ├── ai_service.py
+        └── trading_engine.py
