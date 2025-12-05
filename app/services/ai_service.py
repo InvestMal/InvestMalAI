@@ -1,3 +1,4 @@
+import asyncio
 from openai import OpenAI
 from app.config import OPENAI_API_KEY
 
@@ -7,13 +8,20 @@ class AIService:
 
     async def ask(self, prompt: str) -> str:
         try:
-            response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": prompt},
-                ]
+            loop = asyncio.get_event_loop()
+
+            # تشغيل API بشكل غير متزامن داخل executor
+            response = await loop.run_in_executor(
+                None,
+                lambda: self.client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant."},
+                        {"role": "user", "content": prompt},
+                    ]
+                )
             )
+
             return response.choices[0].message.content.strip()
 
         except Exception as e:
